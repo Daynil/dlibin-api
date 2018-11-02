@@ -20,9 +20,11 @@
     "@nestjs/common": "^5.0.0",
     "@nestjs/core": "^5.0.0",
     "@types/dotenv": "^4.0.3",
+    "@types/mailgun-js": "^0.16.1",
     "cors": "^2.8.4",
     "dotenv": "^6.1.0",
     "fastify-formbody": "^2.0.0",
+    "mailgun-js": "^0.22.0",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.0.0",
     "typescript": "^2.6.2"

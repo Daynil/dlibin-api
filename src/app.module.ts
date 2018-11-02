@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { DlibinnetModule } from './dlibinnet/dlibinnet.module';
+import { InnerPathModule } from './inner-path/inner-path.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [InnerPathModule, DlibinnetModule],
+  controllers: [AppController]
 })
 export class AppModule {}
