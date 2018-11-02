@@ -18,16 +18,26 @@ export class InnerPathController {
 
   constructor(private mgService: MailgunService) {}
 
+  private dlPromise(res: Response, docName: string) {
+    return new Promise((resolve, reject) => {
+      res.download(
+        join(__dirname, '..', '..', 'assets', 'inner-path', `${docName}.pdf`),
+        docName,
+        e => {
+          if (e) reject(e);
+          else resolve();
+        }
+      );
+    });
+  }
+
   @Get('document/:name')
-  downloadDocument(@Param('name') docName, @Res() res: Response) {
-    return res.download(
-      join(__dirname, '..', '..', 'assets', 'inner-path', `${docName}.pdf`),
-      docName,
-      e => {
-        if (e)
-          throw new InternalServerErrorException('File download error', e + '');
-      }
-    );
+  async downloadDocument(@Param('name') docName, @Res() res: Response) {
+    try {
+      return await this.dlPromise(res, docName);
+    } catch (e) {
+      throw new InternalServerErrorException('File download error', e + '');
+    }
   }
 
   @Post('email')
