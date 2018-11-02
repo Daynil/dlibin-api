@@ -20,10 +20,10 @@ export class MailgunService {
       apiKey: process.env.MAILGUN_API_KEY_INNER_PATH,
       domain: 'innerpathllc.com'
     });
-    // this.mailgunInnerpath = new Mailgun({
-    //   apiKey: process.env.MAILGUN_API_KEY_DLIBINNET,
-    //   domain: 'dlibin.net'
-    // });
+    this.mailgunDlibinnet = new Mailgun({
+      apiKey: process.env.MAILGUN_API_KEY_DLIBINNET,
+      domain: 'dlibin.net'
+    });
   }
 
   async sendEmail(site: Site, mailData: MailData) {

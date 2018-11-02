@@ -5,8 +5,7 @@ import {
   InternalServerErrorException,
   Param,
   Post,
-  Res,
-  UseFilters
+  Res
 } from '@nestjs/common';
 import { Response } from 'express';
 import { join } from 'path';
@@ -41,7 +40,6 @@ export class InnerPathController {
   }
 
   @Post('email')
-  @UseFilters()
   async sendEmail(@Body() mailData: MailData) {
     return this.mgService.sendEmail(this.site, mailData);
   }
