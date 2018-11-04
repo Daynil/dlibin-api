@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { Response } from 'express';
 import { join } from 'path';
-import { MailData, MailgunService, Site } from 'shared/mailgun.service';
+import { MailData, MailgunService, Site } from '../shared/mailgun.service';
 
 @Controller('inner-path')
 export class InnerPathController {

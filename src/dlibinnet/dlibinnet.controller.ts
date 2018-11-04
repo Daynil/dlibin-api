@@ -1,5 +1,5 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { MailData, MailgunService, Site } from 'shared/mailgun.service';
+import { MailData, MailgunService, Site } from '../shared/mailgun.service';
 
 @Controller('dlibinnet')
 export class DlibinnetController {
