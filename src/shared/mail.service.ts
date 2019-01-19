@@ -64,6 +64,7 @@ export class MailService {
     try {
       return await sgMail.send(mail);
     } catch (e) {
+      console.log(`Mailgun error: (${site})`, e);
       throw new InternalServerErrorException(`Mailgun error (${site})`, e + '');
     }
   }
