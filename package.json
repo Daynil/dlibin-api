@@ -19,6 +19,7 @@
   "dependencies": {
     "@nestjs/common": "^5.0.0",
     "@nestjs/core": "^5.0.0",
+    "@sendgrid/mail": "^6.3.1",
     "@types/dotenv": "^4.0.3",
     "@types/mailgun-js": "^0.16.1",
     "cors": "^2.8.4",

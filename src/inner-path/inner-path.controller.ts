@@ -9,13 +9,13 @@ import {
 } from '@nestjs/common';
 import { Response } from 'express';
 import { join } from 'path';
-import { MailData, MailgunService, Site } from '../shared/mailgun.service';
+import { MailDataRelay, MailService, Site } from '../shared/mail.service';
 
 @Controller('inner-path')
 export class InnerPathController {
   private site: Site = 'innerpath';
 
-  constructor(private mgService: MailgunService) {}
+  constructor(private mgService: MailService) {}
 
   private dlPromise(res: Response, docName: string) {
     return new Promise((resolve, reject) => {
@@ -40,7 +40,7 @@ export class InnerPathController {
   }
 
   @Post('email')
-  async sendEmail(@Body() mailData: MailData) {
+  async sendEmail(@Body() mailData: MailDataRelay) {
     return this.mgService.sendEmail(this.site, mailData);
   }
 }

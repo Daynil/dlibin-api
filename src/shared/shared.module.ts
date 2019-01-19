@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
-import { MailgunService } from './mailgun.service';
+import { MailService } from './mail.service';
 
 @Module({
-  providers: [MailgunService],
-  exports: [MailgunService]
+  providers: [MailService],
+  exports: [MailService]
 })
 export class SharedModule {}
