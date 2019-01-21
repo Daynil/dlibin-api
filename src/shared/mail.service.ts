@@ -59,8 +59,6 @@ export class MailService {
     `
     };
 
-    console.log(mail);
-
     try {
       return await sgMail.send(mail);
     } catch (e) {
@@ -91,16 +89,6 @@ export class MailService {
     }
 
     subjectLine = `${subjectLine} ${mailData.subject}`;
-    console.log({
-      from: mailData.email,
-      to: ourEmail,
-      subject: subjectLine,
-      html: `
-      <div><b>Name:</b> ${mailData.first} ${mailData.last}</div>
-      <div><b>Message:</b></div>
-      <div>${mailData.body}</div>
-    `
-    });
     const mail: Mailgun.messages.SendData = {
       from: mailData.email,
       to: ourEmail,
